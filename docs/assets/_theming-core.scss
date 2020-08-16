@@ -1,0 +1,81 @@
+@function create-theme-palette(
+  $primary,
+  $secondary,
+  $emphasis,
+  $accent,
+  $background,
+  $background-highlight,
+  $chart-primary,
+  $chart-secondary
+) {
+  @return (
+    primary: $primary,
+    secondary: $secondary,
+    emphasis: $emphasis,
+    accent: $accent,
+    background: $background,
+    background-highlight: $background-highlight,
+    chart-primary: $chart-primary,
+    chart-secondary: $chart-secondary
+  );
+}
+
+@mixin metame-theme($theme-palette) {
+  $primary: map-get($theme-palette, "primary");
+  $secondary: map-get($theme-palette, "secondary");
+  $emphasis: map-get($theme-palette, "emphasis");
+  $accent: map-get($theme-palette, "accent");
+  $background: map-get($theme-palette, "background");
+  $background-highlight: map-get($theme-palette, "background-highlight");
+  $chart-primary: map-get($theme-palette, "chart-primary");
+  $chart-secondary: map-get($theme-palette, "chart-secondary");
+
+  color: $primary;
+  background-color: $background;
+
+  hr {
+    margin: 0;
+    border-width: 1px;
+    border-color: transparent transparent map-get($theme-palette, "primary")
+      transparent;
+  }
+
+  a {
+    color: $accent;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .background {
+    background-color: $background;
+  }
+
+  .background-highlight {
+    background-color: $background-highlight;
+  }
+
+  @each $name, $value in $theme-palette {
+    .color-#{$name},
+    .font-#{$name} {
+      color: $value;
+    }
+
+    .border-color-#{$name} {
+      border-color: $value;
+    }
+
+    .stroke-#{$name} {
+      stroke: $value;
+    }
+
+    .fill-#{$name} {
+      fill: $value;
+    }
+
+    .background-#{$name} {
+      background-color: $value;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "colours-solarized";
+@import "theming-core";
+
+.theme-thalassophile {
+  $palette: create-theme-palette(
+    $base0,
+    $base01,
+    $base1,
+    $blue,
+    $base03,
+    $base02,
+    $base1,
+    $base01
+  );
+  @include metame-theme($palette);
+}
+
+html,
+body {
+  color: $base0;
+  background-color: $base03;
+}
