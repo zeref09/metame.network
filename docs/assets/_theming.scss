@@ -15,8 +15,41 @@
   @include metame-theme($palette);
 }
 
+// html,
+// body {
+//   color: $base0;
+//   background-color: $base03;
+// }
+
+$background-primary: rgb(33, 33, 33);
+$background-secondary: rgb(44, 44, 44);
+$background-tertiary: rgb(55, 55, 55);
+$background-quaternary: rgb(133, 133, 133);
+
+$font-primary: rgba(255, 255, 255, 0.87);
+$font-secondary: rgba(255, 255, 255, 0.5);
+$font-emphasis: white;
+$font-tertiary: rgba(255, 255, 255, 0.33);
+$font-accent: rgb(235, 103, 31);
+$font-accent-secondary: rgb(230, 174, 122);
+
+.theme-default {
+  $palette: create-theme-palette(
+    $font-primary,
+    $font-secondary,
+    $font-emphasis,
+    $font-accent,
+    $background-primary,
+    $background-secondary,
+    $font-primary,
+    rgb(75, 75, 75)
+  );
+
+  @include metame-theme($palette);
+}
+
 html,
 body {
-  color: $base0;
-  background-color: $base03;
+  color: $font-primary;
+  background-color: $background-primary;
 }
